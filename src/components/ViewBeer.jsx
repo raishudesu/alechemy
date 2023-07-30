@@ -6,6 +6,9 @@ const ViewBeer = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { beer } = location.state || {};
+  if (!beer) {
+    return <div className="h-screen">No item data found.</div>;
+  }
   const {
     name,
     tagline,
@@ -29,6 +32,7 @@ const ViewBeer = () => {
         Return
         <RiArrowGoBackFill size={20} className="text-[#F2A154]" />
       </button>
+
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 justify-center items-center text-center gap-4 bg-[#E7E6E1] rounded-lg overflow-hidden ">
         <div className="flex justify-center py-4">
           <img
