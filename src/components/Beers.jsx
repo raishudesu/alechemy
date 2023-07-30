@@ -41,9 +41,9 @@ const Beers = () => {
   });
 
   return (
-    <div className="w-full max-h-fit flex flex-col items-center gap-6">
+    <div className="w-full max-h-fit flex flex-col items-center gap-6 p-2">
       {isLoading && <BiLoaderAlt size={30} className="animate-spin" />}
-      <div className="w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="sm:w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {isSuccess &&
           beers.map(
             (

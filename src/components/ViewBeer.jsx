@@ -5,9 +5,24 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 const ViewBeer = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const ReturnBtn = () => {
+    return (
+      <button
+        onClick={() => navigate("/")}
+        className="flex items-center gap-2 p-2"
+      >
+        Return
+        <RiArrowGoBackFill size={20} className="text-[#F2A154]" />
+      </button>
+    );
+  };
   const { beer } = location.state || {};
   if (!beer) {
-    return <div className="h-screen">No item data found.</div>;
+    return (
+      <div className="h-screen p-2">
+        <ReturnBtn /> No item data found.
+      </div>
+    );
   }
   const {
     name,
@@ -23,16 +38,10 @@ const ViewBeer = () => {
   } = beer;
   const { value, unit } = volume;
   const { malt } = ingredients;
+
   return (
     <div className="w-full min-h-screen max-h-fit overflow-hidden p-2 ">
-      <button
-        onClick={() => navigate("/")}
-        className="flex items-center gap-2 p-2"
-      >
-        Return
-        <RiArrowGoBackFill size={20} className="text-[#F2A154]" />
-      </button>
-
+      <ReturnBtn />
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 justify-center items-center text-center gap-4 bg-[#E7E6E1] rounded-lg overflow-hidden ">
         <div className="flex justify-center py-4">
           <img
